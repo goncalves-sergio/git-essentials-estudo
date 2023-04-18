@@ -1,3 +1,10 @@
+
+################### GIT ########################
+
+### File > Preferences > Settings > Search: file exclude > exclui o /**.git 
+Excluindo voce vai mostrar a pasta oculta .git, que é a pasta com as features para monitorar o diretorio em que o git foi iniciado.
+
+
 ### Comandos em SheLLScript no CMD 
 
 ### status de monitoramento do GIT no diretorio 
@@ -9,7 +16,97 @@ git status
 git init 
 
 
-
 ### pasta .git é uma pasta oculta de configurações do sistema 
 
 ### arquivo .gitignore ignora os arquivos que são digitados dentro, files ignorados são untracked no git, ou seja, não monitorados. 
+
+
+
+##### .git pasta config 
+Recomendado configurar nome e email a cada vez q ue criar um novo repositório 
+
+
+git config user.name "Sergio Gonçalves"       
+git config user.email "seergio.goncalves@gmail.com"
+
+
+git config --global user.name "Sergio Gonçalves"    <<-- Flag "--global" voce faz uma configuração a traço global para configurar para sempre o user.name por exemplo (não recomendado para maquinas publicas)
+
+git add .gitignore << - evoluiu o .gitignore para unstage (monitorado [TRACKED])
+
+##### COMMITANDO 
+
+
+Agora vamos comitar, o commit serve para evoluir os arquivos de monitorados (tracked) para a stage. 
+
+( -m significa mensagem, as mensagens sao importantes para olhar os logs do git)
+git commit -m "inicialização do projeto"
+
+
+ ### comando que adiciona ao monitoramento tudo da seção (tanto aquivos untracked quanto modified)
+git add . 
+
+### observando os logs git 
+git log 
+
+# mostra os dois ultimos logs
+git log -2
+
+# mostra todos os comits em uma linha (resumo)
+
+git log --oneline
+
+# pesquisando os commits por data e autor
+
+git log --before="2022-04-17"
+
+git log --after="2022-04-15"
+
+git log --since="2 days ago"
+
+git log --author="Sergio"
+
+#documentação do git log
+
+git help log
+
+--- o HEAD sempre vai ser o ultimo commit 
+
+
+### navegando através dos snap shots (aula 22)
+
+git checkout 94a6ac8
+git checkout Head Detached (Cabeça desacoplada)
+
+git checkout master 
+
+
+#### MOVE [mv]  (RENOMEANDO um arquivo pelo GIT )
+
+git mv projecao.ipynb bibliotecas-py.ipynb
+git status
+
+### renomendo através do git o arquivo continua sendo monitorado e está pronto para o commit. Quando damos um rename no arquivo ele é dropado criado um novo e fica untracked (desacoplado ou nao monitorado)
+
+### removendo arquivos 
+
+~~ del arquivo na mão 
+
+git add hash.csv
+git status
+git commit --m "<fix>: comitando delete"
+
+
+## deletando arquivos git 
+
+git rm arquivo.txt
+git status
+git commit --m "deletando arquivo.txt "
+
+
+###### Tanto os comandos GIT MV quanto o GIT RM podem ser utilizados tanto com arquivos quanto com pastas
+
+#### a cada modificação realize um commit. O commit é um snapshot do projeto, e a cada commit realizado podemos voltar no tempo. Faça pequenos commits, nao faça o COMITAO. 
+
+### Checando diferenças entre commits 
+

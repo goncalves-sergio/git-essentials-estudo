@@ -1,0 +1,15 @@
+### Comandos em SheLLScript no CMD 
+
+### status de monitoramento do GIT no diretorio 
+
+git status
+
+### Comando para iniciar o monitoramento GIT no diretorio
+
+git init 
+
+
+
+### pasta .git é uma pasta oculta de configurações do sistema 
+
+### arquivo .gitignore ignora os arquivos que são digitados dentro, files ignorados são untracked no git, ou seja, não monitorados. 

@@ -108,5 +108,25 @@ git commit --m "deletando arquivo.txt "
 
 #### a cada modificação realize um commit. O commit é um snapshot do projeto, e a cada commit realizado podemos voltar no tempo. Faça pequenos commits, nao faça o COMITAO. 
 
-### Checando diferenças entre commits 
+### Checando diferenças entre commits ( checa a diferença entre aquilo que esta pronto para ser commitado com o ultimo commit )
+
+git diff --staged (estado anterior do código que esta tracked)
+
+git diff 5c89273  (diferença de commit das alterações tracked para esse hashid )
+
+git diff 723dfe2..94a6ac8 ( diferença de comits do primeiro ao ultimo log )
+
+#### desfazendo coisas
+# fiz a mensagem do comit errado
+git commit --m "<hot fix>: escrerktjgejsdg"
+
+# corrigindo
+
+
+## adicionando uma mudança em um commit ja feito
+# modifiquei o arquivo .gitignore
+git add .gitignore
+git commit --amend -m "<patch>: modificando biliotecas.ipynb e read.txt"
+
+# o mesmo vale se quisermos corrigir o arquivo e colocar no mesmo commit 
 

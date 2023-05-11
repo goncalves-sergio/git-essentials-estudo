@@ -228,9 +228,17 @@ git checkout v1.0
 git switch -c correcoes-v1.0
 
 
-#### visualizando a conexão com a origem 
+#### visualizando a conexão e vinculos com a origem (github)
 
 git remote -v 
+
+
+
+####### clonando do GITHUB
+
+---- vá ao repositório github pegue o endereço https e faça:
+
+git clone <endereço>
 
 
 

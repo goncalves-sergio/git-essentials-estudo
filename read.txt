@@ -228,4 +228,10 @@ git checkout v1.0
 git switch -c correcoes-v1.0
 
 
+#### visualizando a conexão com a origem 
+
+git remote -v 
+
+
+
 

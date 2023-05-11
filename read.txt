@@ -130,3 +130,102 @@ git commit --amend -m "<patch>: modificando biliotecas.ipynb e read.txt"
 
 # o mesmo vale se quisermos corrigir o arquivo e colocar no mesmo commit 
 
+### BRANCH
+
+----- Uma branch nada mais é que uma ramificação do projeto.
+
+-------------/---------- BRANCH MASTER -> RAMO PRINCIPAL
+              ---------- OUTRAS BRANCH'S -> ex: Outras funcionalidades (É uma cópia até "/")    O "/" é chamada de BASE. É o ponto em comum das duas branchs, até essa parte ambas são iguais
+
+git branch -> comando que verifica quantas branchs existem no projeto, o "*" indica em qual branch estamos posicionados
+
+Uma BRANCH pode ser usada para testes de funcionalidades, por exemplo podemos  criar uma branch para testar novas funcionalidades e caso nao ficar bom, excluir tudo e voltar para a base.
+
+## Criando uma branch (De nomes que façam sentido a função da branch)
+
+git branch <nome da branch>
+
+git checkout <nome da branch> ---> para trabalhar em outra branch
+
+## deletando uma branch
+
+git branch -d <nome da branch>
+
+
+### MERGE (UNIFICANDO AS BRANCHS)
+
+------ Para unificar as branchs vá a branch master
+
+git checkout master
+git merge funcionalidadeB
+
+
+------- após o merge podemos deletar a branch 
+
+git branch -d funcionalidadeB
+
+--- "É na hora do merge que geralmente podem ocorrer conflitos quando dois devs tentam dar merge ao mesmo tempo."
+
+
+### REBASE (Rebase funciona igual o merge, a diferença é que os commits da master adicionados depois da BASE são comitados depois dos comits da Branch nova)
+
+git checkout -b funcionalidadeC (vá a Funcionalidade C, se nao existir crie)
+
+ git rebase funcionalidadeC
+
+
+
+#### CLONE e PUSH
+
+----- Crie um novo diretório e dê um clone no endereço do repositório existente, como se fosse um usuário novo
+
+git clone <endereço> . 
+
+
+--------- o clone irá basicamente clonar os arquivos criando um nó e linkando com o projeto origem. Lembre-se que o git é um sistema de versionamento descentralizado. 
+
+git push 
+
+--- ERRO , deu erro pois o repositório que tentamos escrever é apenas de leitura, precisamos escrever em um repositorio do tipo bare . 
+---- BARE REPOSITORY é um repositório central que serve tanto para leitura (clone) quanto escrita (push) para todos os usuários. 
+
+
+##### FETCH e PULL
+
+--- O Fetch baixa as atualizações de um repositório remoto porém nao as aplica no repositório local, ou seja nao faz o merge. Dessa forma permite fazer o REBASE ao invés do MERGE.
+
+
+--- em um repositório já clonado da origem, dê o git fetch para baixar as atualizações sem dar merge 
+
+
+git fetch 
+git rebase
+
+## PULL (Git pull é uma junção dos comandos FETCH e REBASE, ou seja ele faz os dois em apenas 1 comando)
+
+git pull
+
+
+######## BARE REPOSITORY 
+
+
+### um repositório BARE é um repositório central , onde os dev podem ler ou escrever os repositórios existentes. Ele pode ser tanto local quanto em nuvem (como o GITHUB)
+
+git init --bare
+
+
+######### TAGS (Definindo versões estáveis do projeto)
+
+---- TAGS são como Releases do projeto, pode ser uma parte do projeto pronta e usável e testável. Nela não são mais realizados commits, assim é uma versão estável. 
+
+git tag v1.0
+git tag 
+
+git checkout v1.0 
+
+---- transformando a TAG em branch, para corrigir bugs por exemplo
+
+git switch -c correcoes-v1.0
+
+
+

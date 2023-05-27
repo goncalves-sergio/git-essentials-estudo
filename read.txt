@@ -24,6 +24,7 @@ git init
 
 ##### .git pasta config 
 Recomendado configurar nome e email a cada vez q ue criar um novo repositório 
+--- Sempre registre o usuário e email do mesmo. Evita erros na hora dar git commit ou git push
 
 
 git config user.name "Sergio Gonçalves"       
@@ -33,6 +34,8 @@ git config user.email "seergio.goncalves@gmail.com"
 git config --global user.name "Sergio Gonçalves"    <<-- Flag "--global" voce faz uma configuração a traço global para configurar para sempre o user.name por exemplo (não recomendado para maquinas publicas)
 
 git add .gitignore << - evoluiu o .gitignore para unstage (monitorado [TRACKED])
+
+git add .  << - git add todos os arquivos untracked ou modifiqued 
 
 ##### COMMITANDO 
 
@@ -240,6 +243,64 @@ git remote -v
 
 git clone <endereço>
 
+#### trazendo as atualizações do bare repository para o local 
+
+git pull origin master 
 
 
+##### enviando atualizações ao bare repository
+
+git push -u origin master
+
+
+#### adicionando colaboradores ao projeto
+
+repositório > settings > manage access > confirma senha > invite a collaborator > search user name ou email > invite por email > aceitar
+
+
+####### Desfazendo checkouts 
+
+--- Modifiquei vários arquivos, eles estão Untracked('U'), porém quero desfazer essas alterações e retornar ao último estado.
+
+
+git checkout -- "<arquivo.extensão>"
+git status 
+git add . ---> git add todos os arquivos
+
+git commit --m "mensagem do commit"
+git push -u origin master 
+
+
+---- modificando arquivos modificados (já adicionamos os arquivos, o estado deles é tracked)
+
+git checkout HEAD -- . ---> todos os arquivos
+
+--- podemos também especificar arquivos fazendo
+
+git checkout HEAD -- "<arquivo.extensão>"
+
+
+######## Desfazendo com Revert e Reset 
+
+## REVERT
+--- Fizemos um commit, vamos desfazer o commit com o REVERT que vai criar o commit removendo as modificações do primeiro commit. 
+--- O uso do revert é util pois mantém o histórico dos commits. Ele mantém o commit que adicionou e que retirou as linhas.
+
+
+git revert <ID DO COMMIT>
+--- ctrl + O , ctrl + X
+
+git push -u origin master
+git log -3 
+
+## Reset
+--- O git reset desfaz o ultimo commit e volta ao estado anterior, podemos retornar vários commits atrás. Cuidado com seu uso. 
+
+git reset HEAD~1  ---> (  ~ <numero de commits a resetar)
+
+
+###### RESOLVENDO CONFLITOS 
+
+
+--- Os conflitos geralmente ocorrem quando queremos fazer um merge ou rebase. Quando a gente tenta atualizar um repositório nosso ou realizar um push, mas o repositório local está mais antigo que o bare repository.
 

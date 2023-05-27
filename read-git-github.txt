@@ -26,6 +26,8 @@ git init
 Recomendado configurar nome e email a cada vez q ue criar um novo repositório 
 --- Sempre registre o usuário e email do mesmo. Evita erros na hora dar git commit ou git push
 
+git config credential.helper store <<<- comando q armazena as credenciais github para acessar o repositorio e fazer alteraçoes
+
 
 git config user.name "Sergio Gonçalves"       
 git config user.email "seergio.goncalves@gmail.com"
@@ -46,7 +48,7 @@ Agora vamos comitar, o commit serve para evoluir os arquivos de monitorados (tra
 git commit -m "inicialização do projeto"
 
 
- ### comando que adiciona ao monitoramento tudo da seção (tanto aquivos untracked quanto modified)
+#### comando que adiciona ao monitoramento tudo da seção (tanto aquivos untracked quanto modified)
 git add . 
 
 ### observando os logs git 
@@ -304,3 +306,7 @@ git reset HEAD~1  ---> (  ~ <numero de commits a resetar)
 
 --- Os conflitos geralmente ocorrem quando queremos fazer um merge ou rebase. Quando a gente tenta atualizar um repositório nosso ou realizar um push, mas o repositório local está mais antigo que o bare repository.
 
+### Realizada um pull request queremos analisa-la no VScode para isso vamos apenas baixar (fetch) sem realizar o merge 
+
+git fetch origin pull/3/head:correcao_i2 (head é o nome da branch onde vamos adicionar o pull request ; i2 significa issue #2, a issue q vamos corrigir no projeto)
+git checkout correcao_i2

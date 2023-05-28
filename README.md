@@ -7,9 +7,8 @@
 [Curso Git/Github Essentials for Devs](https://www.udemy.com/course/curso-de-git-e-github-essencial/)
 
 
----
----
----
+
+
 
 # Exemplo de esqueleto readme para projetos
 
